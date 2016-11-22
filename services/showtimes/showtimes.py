@@ -5,7 +5,7 @@ from flask import jsonify, request,make_response,abort
 
 
 @app.route('/showtimes',methods=['GET'])
-def showtimes_llist():
+def showtimes_list():
     if request.method == 'GET':
         #d = Dates.query.filter_by(id=3).first().showtime
         show = Dates.query.all()
@@ -16,6 +16,15 @@ def showtimes_llist():
 
 
 
+@app.route('/showtimes/<int:id>',methods=['GET'])
+def showtimes_get(id):
+    if request.method == 'GET':
+        #d = Dates.query.filter_by(id=3).first().showtime
+        show = Dates.query.filter_by(id=id).one()
+        #return jsonify(Movies = [i.serialize for i in movies])
+        #d = Dates.query.filter_by(id=i.id).first().showtime
+        #return jsonify(Showtimes = [i.serialize for i in show])
+        return jsonify(show.serialize)
         #return jsonify(Showtimes = [i.serialize for i in show])
 
 # @app.route('/showtimes/<int:id>', methods=['GET'])

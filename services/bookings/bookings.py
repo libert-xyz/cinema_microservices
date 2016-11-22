@@ -17,10 +17,12 @@ def movies():
 def get_user(id):
 
     try:
-
          #user = User.query.filter_by(id=id).one()
-         user = Booking.query.filter_by(user_id=id).one()
-         return jsonify(User = user.serialize_user)
+         user = Booking.query.filter_by(user_id=id)
+
+         #return jsonify(User = user.serialize_user)
+         return jsonify(User = [i.serialize_user for i in user])
+
     except:
         abort(404)
 

@@ -90,6 +90,13 @@ b2.movie_booking.append(m4)
 db.session.add(b2)
 db.session.commit()
 
+b3 = Booking(user_id=1)
+b3.date_id=2
+b3.movie_booking.append(m)
+b3.movie_booking.append(m4)
+db.session.add(b3)
+db.session.commit()
+
 
 
 print ('Done creation Booking..')

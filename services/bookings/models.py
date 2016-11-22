@@ -40,20 +40,3 @@ class Movies(db.Model):
 
     def __init__(self,id):
         self.id = id
-
-    # def __repr__(self):
-    #     return '<Title %r>' %self.title
-
-    # @property
-    # def serialize(self):
-    #     return {
-    #   'Title': self.title,
-    #   }
-
-    # @property
-    # def serialize(self):
-    #     #d = Dates.query.filter_by(id=i.id).first().showtime
-    #     return {
-    #   str(self.date) :
-    #   [i.title for i in self.showtime]
-    #   }
