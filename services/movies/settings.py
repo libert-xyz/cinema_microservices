@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///moviesdb.db'
 db = SQLAlchemy(app)
 
-server = Server(host="localhost", port=5000)
+server = Server(host="0.0.0.0", port=5000)
 
 migrate = Migrate(app,db)
 manager = Manager(app)
