@@ -23,7 +23,7 @@ def get_movie(id):
 @app.route('/user/<int:id>/booking',methods=['GET'])
 def get_booking(id):
     try:
-        users_bookings = requests.get("http://localhost:5005/booking/{}".format(id))
+        users_bookings = requests.get("http://localhost:5003/booking/{}".format(id))
     except:
         raise ServiceUnavailable("The bookings service is unavailable")
 
