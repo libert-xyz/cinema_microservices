@@ -1,13 +1,13 @@
 """empty message
 
-Revision ID: f69089337ee1
+Revision ID: e305508cd7ed
 Revises: None
-Create Date: 2016-11-06 19:52:11.219916
+Create Date: 2016-11-26 11:39:46.169542
 
 """
 
 # revision identifiers, used by Alembic.
-revision = 'f69089337ee1'
+revision = 'e305508cd7ed'
 down_revision = None
 
 from alembic import op
@@ -23,8 +23,6 @@ def upgrade():
     )
     op.create_table('movies',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('title', sa.String(length=200), nullable=True),
-    sa.Column('rating', sa.Integer(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('showtime',

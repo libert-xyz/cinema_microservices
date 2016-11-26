@@ -40,7 +40,7 @@ def get_movie(id):
     except:
         abort(404)
 
-@app.route('/movies',methods=['POST','PUT','DELETE'])
+@app.route('/movies',methods=['POST'])
 def new_movies():
 
     title = request.args.get('title','')
