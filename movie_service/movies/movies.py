@@ -1,7 +1,8 @@
-from settings import app,db
+from settings import app,db,showtime_service
 from models import Movies
 import json
 from flask import jsonify, request,make_response,abort, abort
+import requests
 
 @app.route('/movies',methods=['GET'])
 def movies():
@@ -55,6 +56,11 @@ def new_movies():
     movie.rating = rating
     db.session.add(movie)
     db.session.commit()
+
+    #movie_showtime = Movie.query.filter_by(title=title).first()
+    #movie_id = {'id':movie.id}
+    showtime_post = requests.post(showtime_service+'?'+'id='+str(movie.id))
+    print (showtime_post.text)
 
     return jsonify({'Title': movie.title,'Raiting': movie.rating, 'id': movie.id})
 
