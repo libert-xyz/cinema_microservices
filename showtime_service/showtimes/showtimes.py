@@ -34,20 +34,59 @@ def showtimes_get(id):
 #     except:
 #         abort(404)
 
-@app.route('/mv/add',methods=['POST'])
+@app.route('/mv/post',methods=['POST'])
 def add_movie():
     id = request.args.get('id','')
-    if id == '':
+    title = request.args.get('title','')
+    rating = request.args.get('rating','')
+    if title == '' or rating== '':
         abort(400)
-    if Movies.query.filter_by(id=id).first() is not None:
+    if Movies.query.filter_by(title=title).first() is not None:
 
         return jsonify({"message":"movie alaredy exists in showtime Database"}), 200
 
-    movie = Movies(id=id)
+    movie = Movies(title=title)
+    movie.id = id
+    movie.rating=rating
     db.session.add(movie)
     db.session.commit()
     return 'Movie added in the showtime service'
     #return jsonify({'Title': movie.title,'Raiting': movie.rating, 'id': movie.id})
+
+@app.route('/mv/put/<int:id>', methods=['PUT'])
+def mod_movie(id):
+
+    try:
+         movie = Movies.query.filter_by(id=id).one()
+         if request.method == 'PUT':
+            title = request.args.get('title')
+            rating = request.args.get('rating')
+
+            if title:
+                movie.title = title
+
+            if rating:
+                movie.rating = rating
+
+            db.session.add(movie)
+            db.session.commit()
+
+            return jsonify(Movie = movie.serialize)
+
+    except:
+        abort(404)
+
+@app.route('/mv/delete/<int:id>', methods=['DELETE'])
+def del_movie(id):
+
+    try:
+         movie = Movies.query.filter_by(id=id).one()
+         if request.method == 'DELETE':
+             db.session.delete(movie)
+             db.session.commit()
+             return 'Movie Deleted'
+    except:
+        abort(404)
 
 @app.route('/show',methods=['GET'])
 def show_movies():

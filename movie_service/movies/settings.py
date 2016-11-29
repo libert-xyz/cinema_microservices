@@ -10,7 +10,11 @@ db = SQLAlchemy(app)
 
 user_service = 'http://0.0.0.0:5001/user'
 booking_service = 'http://0.0.0.0:5003/booking'
-showtime_service = 'http://0.0.0.0:5002/mv/add'
+showtime_post = 'http://0.0.0.0:5002/mv/post'
+showtime_put = 'http://0.0.0.0:5002/mv/put'
+showtime_delete = 'http://0.0.0.0:5002/mv/delete'
+
+
 
 server = Server(host="0.0.0.0", port=5000)
 

@@ -7,46 +7,46 @@ import pytz
 
 ######Movies###################
 
-# m = Movies(title='Titanic')
-# m.rating=9
-# db.session.add(m)
-# db.session.commit()
-#
-# m2 = Movies(title='Dragon Ball')
-# m2.rating=2
-# db.session.add(m2)
-# db.session.commit()
-#
-#
-# m3 = Movies(title='FightClub')
-# m3.rating=10
-# db.session.add(m3)
-# db.session.commit()
-#
-# m4 = Movies(title='Batman')
-# m4.rating=5
-# db.session.add(m4)
-# db.session.commit()
-
-
-######Movies###################
-
-m = Movies(id=1)
+m = Movies(title='Titanic')
+m.rating=9
 db.session.add(m)
 db.session.commit()
 
-m2 = Movies(id=3)
+m2 = Movies(title='Dragon Ball')
+m2.rating=2
 db.session.add(m2)
 db.session.commit()
 
 
-m3 = Movies(id=4)
+m3 = Movies(title='FightClub')
+m3.rating=10
 db.session.add(m3)
 db.session.commit()
 
-m4 = Movies(id=5)
+m4 = Movies(title='Batman')
+m4.rating=5
 db.session.add(m4)
 db.session.commit()
+
+
+######Movies###################
+
+# m = Movies(id=1)
+# db.session.add(m)
+# db.session.commit()
+#
+# m2 = Movies(id=3)
+# db.session.add(m2)
+# db.session.commit()
+#
+#
+# m3 = Movies(id=4)
+# db.session.add(m3)
+# db.session.commit()
+#
+# m4 = Movies(id=5)
+# db.session.add(m4)
+# db.session.commit()
 
 
 ###############DATES#######################
