@@ -26,3 +26,5 @@ shutdown:
 	ps -ef | grep "showtime_service/showtimes/main.py" | grep -v grep | awk '{print $$2}' | xargs -r kill
 	ps -ef | grep "booking_service/bookings/main.py" | grep -v grep | awk '{print $$2}' | xargs -r kill
 	ps -ef | grep "user_service/user/main.py" | grep -v grep | awk '{print $$2}' | xargs -r kill
+
+#wow hello again?
